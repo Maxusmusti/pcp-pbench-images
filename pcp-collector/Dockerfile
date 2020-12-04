@@ -1,4 +1,4 @@
-FROM fedora:latest
+FROM fedora:33
 
 ENV SUMMARY="Performance Co-Pilot" \
     DESCRIPTION="Performance Co-Pilot is a system performance analysis toolkit." \
