@@ -1,4 +1,4 @@
-FROM fedora:latest
+FROM fedora:33
 
 ENV SUMMARY="Performance Co-Pilot" \
     DESCRIPTION="Performance Co-Pilot is a system performance analysis toolkit." \
@@ -7,7 +7,7 @@ ENV SUMMARY="Performance Co-Pilot" \
 RUN dnf install -y --setopt=tsflags=nodocs procps-ng gettext pcp pcp-zeroconf && \
     dnf install -y pcp-doc pcp-gui pcp-system-tools && \
     dnf clean all
-RUN systemctl enable pmcd
+RUN systemctl enable pmcd && systemctl disable pmlogger
 
 COPY config /etc/sysconfig/pmcd
 
